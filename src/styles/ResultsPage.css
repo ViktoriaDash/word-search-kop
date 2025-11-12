@@ -1,0 +1,343 @@
+.results-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.results-page h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px dashed #dee2e6;
+  margin-bottom: 25px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-results p {
+  font-size: 16px;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.level-stats {
+  margin-bottom: 30px;
+}
+
+.level-stats h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-card h3 {
+  margin: 0 0 12px 0;
+  color: #2c3e50;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #f8f9fa;
+  font-size: 0.9rem;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.games-history {
+  margin-bottom: 30px;
+}
+
+.games-history h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.games-list {
+  max-height: 350px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f8f9fa;
+}
+
+.games-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.games-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.games-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.games-list::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.game-result {
+  background: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f8f9fa;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.game-number {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.game-date {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.game-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.level-badge {
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.level-badge.easy {
+  background: #d4edda;
+  color: #155724;
+}
+
+.level-badge.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.level-badge.hard {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status.completed {
+  color: #155724;
+  font-weight: bold;
+}
+
+.status.incomplete {
+  color: #856404;
+}
+
+.time, .words, .progress {
+  font-size: 0.8rem;
+  color: #495057;
+}
+
+.navigation {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #4a90e2;
+}
+.results-actions,
+.clear-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .results-page {
+    padding: 10px;
+  }
+  
+  .results-page h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .level-stats h2,
+  .games-history h2 {
+    font-size: 1.3rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .stat-card {
+    padding: 12px;
+    min-height: 140px;
+  }
+  
+  .stat-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .stat-item {
+    font-size: 0.85rem;
+    margin: 4px 0;
+  }
+  
+  .games-list {
+    max-height: 250px;
+    padding: 8px;
+  }
+  
+  .game-result {
+    padding: 10px;
+  }
+  
+  .game-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .no-results {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .no-results p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .results-page {
+    padding: 8px;
+  }
+  
+  .results-page h1 {
+    font-size: 1.3rem;
+  }
+  
+  .level-stats h2,
+  .games-history h2 {
+    font-size: 1.1rem;
+  }
+  
+  .no-results {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .no-results p {
+    font-size: 13px;
+  }
+  
+  .stat-card {
+    padding: 10px;
+    min-height: 130px;
+  }
+  
+  .games-list {
+    max-height: 200px;
+  }
+  
+  .game-result {
+    padding: 8px;
+  }
+  
+  .game-details {
+    font-size: 0.8rem;
+  }
+  
+  .level-badge {
+    font-size: 0.75rem;
+    padding: 2px 5px;
+  }
+  
+  .time, .words, .progress {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-height: 800px) {
+  .games-list {
+    max-height: 450px;
+  }
+}
+
+@media (min-height: 1000px) {
+  .games-list {
+    max-height: 550px;
+  }
+}
