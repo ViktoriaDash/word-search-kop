@@ -14,10 +14,10 @@ const generateBoard = (size, words) => {
   const board = Array.from({ length: size }, () => Array(size).fill(""));
 
   const directions = [
-    [0, 1],   // →
-    [1, 0],   // ↓
-    [1, 1],   // ↘
-    [1, -1]   // ↙
+    [0, 1],   
+    [1, 0],   
+    [1, 1],   
+    [1, -1]  
   ];
 
   const canPlace = (word, row, col, dr, dc) => {

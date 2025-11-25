@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom"; 
+
 import Header from "../components/Header";
 import GameBoard from "../components/GameBoard";
 import WordList from "../components/WordList";
@@ -11,20 +13,28 @@ import { useGame } from "../hooks/useGame";
 import { useGameResults } from "../hooks/useGameResults";
 import "../styles/GamePage.css";
 
+
 export default function GamePage({ onFinish }) {
-  const { settings, updateSettings, completedLevels, completeLevel } = useGameSettings();
+  const navigate = useNavigate();
+  const { userId } = useParams(); 
+ 
+  const { settings, updateSettings, completedLevels, completeLevel } = useGameSettings(userId);
   const game = useGame(settings);
-  const { addResult } = useGameResults();
+  const { addResult } = useGameResults(userId);
+
+  console.log(`Поточна гра для користувача ID: ${userId}`);
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [gameCompleted, setGameCompleted] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
 
+
   const handleFinish = () => {
     game.finishGame();
     setModalOpen(true);
   };
+
 
   const handleSaveSettings = (data) => {
     let boardSize;
@@ -51,16 +61,20 @@ export default function GamePage({ onFinish }) {
     setGameStarted(false);
   };
 
+
   const handleOpenSettingsAfterCompletion = () => {
     setShowSettings(true);
   };
 
+
   const isLastLevel = settings.difficulty === "hard";
+
 
   useEffect(() => {
     if (game.foundWords.length === game.words.length && 
         game.words.length > 0 && 
         !gameCompleted) {
+
       console.log("🎯 РІВЕНЬ ЗАВЕРШЕНО! Додаємо до пройдених:", settings.difficulty);
       setGameCompleted(true);
       completeLevel(settings.difficulty);
@@ -77,11 +91,13 @@ export default function GamePage({ onFinish }) {
     }
   }, [game.foundWords.length, game.words.length, settings.difficulty, completeLevel, gameCompleted, addResult, game.gameStats.progress, game.gameTime]);
 
+
   useEffect(() => {
     if (game.isGameActive && !gameStarted) {
       setGameStarted(true);
     }
   }, [game.isGameActive, gameStarted]);
+
 
   return (
     <div className="game-page-container">
@@ -101,7 +117,7 @@ export default function GamePage({ onFinish }) {
           onClick={() => setShowSettings((prev) => !prev)}
         />
          
-        {/* Нова кнопка "Скасувати" */}
+        
         {game.selectedCells.length > 0 && (
           <Button
             label="↶ Скасувати"
@@ -186,7 +202,7 @@ export default function GamePage({ onFinish }) {
         }}
         onClose={() => {
           setModalOpen(false);
-          onFinish();
+          navigate(`/results/${userId}`); 
         }}
       />
     </div>

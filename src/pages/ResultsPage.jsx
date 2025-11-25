@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import { useGameResults } from "../hooks/useGameResults";
 import "../styles/ResultsPage.css";
 
+
 export default function ResultsPage({ onRestart }) {
-  const { results, getLevelStats } = useGameResults();
+  const navigate = useNavigate();
+  const { userId } = useParams(); 
+
+  const { results, getLevelStats } = useGameResults(userId); 
   const levelStats = getLevelStats();
+
 
   const formatTime = (seconds) => {
     if (seconds === null) return "-";
@@ -13,6 +19,7 @@ export default function ResultsPage({ onRestart }) {
     const secs = seconds % 60;
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
+
 
   const getLevelName = (level) => {
     switch (level) {
@@ -22,10 +29,16 @@ export default function ResultsPage({ onRestart }) {
       default: return level;
     }
   };
+  
+  const handleRestart = () => {
+    onRestart(); 
+    navigate("/"); 
+  };
+
 
   return (
     <div className="page results-page">
-      <h1>📊 Результати гри</h1>
+      <h1>📊 Результати гри ({userId === "player_1" ? "Player 1" : "Гість"})</h1> 
       
       {results.length === 0 ? (
         <div className="no-results">
@@ -33,7 +46,6 @@ export default function ResultsPage({ onRestart }) {
         </div>
       ) : (
         <>
-          {/* Статистика по рівням */}
           <div className="level-stats">
             <h2>Статистика по рівням</h2>
             <div className="stats-grid">
@@ -98,7 +110,7 @@ export default function ResultsPage({ onRestart }) {
       )}
       
       <div className="navigation">
-        <Button label="🔄 Грати знову" onClick={onRestart} />
+        <Button label="🔄 Грати знову" onClick={handleRestart} /> 
       </div>
     </div>
   );

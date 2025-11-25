@@ -1,0 +1,16 @@
+.start-page .btn {
+    
+    background: #ff6b6b; 
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.start-page .btn:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
