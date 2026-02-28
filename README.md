@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Word Search (Пошук слова)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Класична інтелектуальна гра "Пошук слова", розроблена на React. Проєкт підтримує різні рівні складності, систему розблокування нових етапів та збереження детальної статистики кожного гравця.
 
-## Available Scripts
+## Основний функціонал
+- **Рівні складності:** Три режими гри — Легкий (5x5), Середній (6x6) та Складний (8x8) з автоматичною генерацією ігрового поля.
+- **Система прогресії:** Можливість розблокувати складніші рівні лише після проходження попередніх.
+- **Персоналізація:** Підтримка гри від імені постійного гравця (Player 1) або в режимі гостя.
+- **Історія результатів:** Детальна статистика кожної гри: час проходження, кількість знайдених слів та загальний прогрес.
+- **Валідація:** Використання сучасних підходів для обробки ігрових налаштувань.
+- **GDPR Compliance:** Реалізована система згоди на використання файлів cookie та LocalStorage з можливістю відмови.
 
-In the project directory, you can run:
+## Технології та конфігурація
+Проєкт ініціалізовано за допомогою `create-react-app` та включає:
+- **React** — побудова компонентної архітектури та логіки гри.
+- **React Router DOM** — маршрутизація (Стартова сторінка, Ігрове поле, Результати).
+- **React Hook Form + Yup** — валідація та обробка форм налаштувань.
+- **Custom Hooks** — винесена логіка для керування станом гри (`useGame`), налаштуваннями (`useGameSettings`) та результатами (`useGameResults`).
+- **LocalStorage** — збереження прогресу гравця та історії ігор між сесіями браузера.
+- **React Cookie Consent** — реалізація банера згоди користувача згідно з нормами GDPR.
+- **JSDoc** — автоматична генерація технічної документації коду.
+- **Storybook** — ізольоване середовище для розробки та демонстрації UI-компонентів.
 
-### `npm start`
+## Базові команди
+Для керування проєктом використовуйте наступні команди (запускаються через `npm <команда>`):
+- `start` — запускає локальний сервер розробки (за замовчуванням на http://localhost:3000).
+- `build` — збирає оптимізований проєкт для продакшену в папку `build`.
+- `test` — запускає інтерактивний прогін тестів.
+- `eject` — надає повний контроль над конфігураціями (операція незворотна).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Ліцензія
+Цей проєкт поширюється за ліцензією **MIT**. Деталі можна знайти у файлі [LICENSE](./LICENSE), а звіт про перевірку залежностей буде доступний у файлі [license-report.txt](./license-report.txt).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Авторство
+Автор проєкту: **ВІКТОРІЯ**
